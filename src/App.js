@@ -8,6 +8,7 @@ import OtherTasks from './components/OtherTasks.js';
 import Navbar from './components/Navbar.js';
 import PersonalTasks from './components/PersonalTasks.js';
 import Login from './components/Login.js'; // Import the Login component
+import { checkTasksAndSendReminders } from './components/TaskReminder';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 function App() {
@@ -41,6 +42,16 @@ function App() {
   const handleLogout = () => {
     setLoggedIn(false);
   };
+
+  // Call the reminder logic when the component mounts
+  useEffect(() => {
+    const reminderInterval = setInterval(() => {
+      checkTasksAndSendReminders(); // Check tasks and send reminders
+    }, 6000); // Run every minute (adjust as needed)
+
+    // Clean up the interval when the component unmounts
+    return () => clearInterval(reminderInterval);
+  }, []); // Empty dependency array to run only once when the component mounts
   
   return (
     <Router>

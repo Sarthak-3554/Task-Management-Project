@@ -1,8 +1,10 @@
+// TaskReminder.js
+
 // Function to check tasks in local storage and send reminders
-function checkTasksAndSendReminders() {
+export function checkTasksAndSendReminders() {
     // Retrieve tasks from local storage
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-  
+    console.log(tasks);
     // Get current time
     const currentTime = new Date();
   
@@ -21,7 +23,4 @@ function checkTasksAndSendReminders() {
       }
     });
   }
-  
-  // Call the function periodically (e.g., every minute)
-  setInterval(checkTasksAndSendReminders, 60000); // 60000 milliseconds = 1 minute
   
