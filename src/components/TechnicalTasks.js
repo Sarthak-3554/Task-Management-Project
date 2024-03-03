@@ -36,6 +36,7 @@ function TechnicalTasks({ updateAllTasks }) {
 
     if (existingTaskIndex === -1) {
       const updatedTaskList = [...taskList, { ...task }];
+      console.log(updatedTaskList);
       setTaskList(updatedTaskList);
       setTask({
         technicalTask: '',

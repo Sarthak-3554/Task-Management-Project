@@ -40,6 +40,7 @@ function OtherTasks({ updateAllTasks }) {
     } else {
       // If no existing task is found, add a new task to the list
       const updatedTaskList = [...taskList, { ...task }];
+      console.log(updatedTaskList);
       setTaskList(updatedTaskList);
       updateAllTasks(updatedTaskList);
     }

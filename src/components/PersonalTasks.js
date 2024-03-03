@@ -25,6 +25,7 @@ function PersonalTasks({ updateAllTasks }) {
 
   const handleTaskCompleted = () => {
     const updatedTaskList = [...taskList, { ...task }];
+    console.log(updatedTaskList);
     setTaskList(updatedTaskList);
     setTask({
       taskName: '',
