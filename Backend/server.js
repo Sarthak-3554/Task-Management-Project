@@ -110,6 +110,19 @@ app.post("/generalTask", async (req, res) => {
   }
 });
 
+app.get("/getGeeneralTask", async (req, res) => {
+  try {
+    // Assuming otherTaskCollection is your MongoDB collection reference
+    const tasks = await generalTaskCollection.find({}); // Use find({}) to retrieve all documents
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+
+
 app.post("/techTask", async (req, res) => {
   const { taskName, startTime, endTime, startDate, endDate, description } =
     req.body;
@@ -127,6 +140,19 @@ app.post("/techTask", async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
+app.get("/getTechTask", async (req, res) => {
+  try {
+    // Assuming otherTaskCollection is your MongoDB collection reference
+    const tasks = await techTaskCollection.find({}); // Use find({}) to retrieve all documents
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+
 
 app.post("/otherTask", async (req, res) => {
   const {
@@ -153,6 +179,19 @@ app.post("/otherTask", async (req, res) => {
   }
 });
 
+app.get("/getOtherTask", async (req, res) => {
+  try {
+    // Assuming otherTaskCollection is your MongoDB collection reference
+    const tasks = await otherTaskCollection.find({}); // Use find({}) to retrieve all documents
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+
+
 app.post("/personalTask", async (req, res) => {
   const { taskName, startTime, endTime, startDate, endDate, description } =
     req.body;
@@ -170,6 +209,19 @@ app.post("/personalTask", async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
+app.get("/getPersonalTask", async (req, res) => {
+  try {
+    // Assuming otherTaskCollection is your MongoDB collection reference
+    const tasks = await personalTaskCollection.find({}); // Use find({}) to retrieve all documents
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+
 
 // Get All Tasks
 app.get("/getTasks", async (req, res) => {
