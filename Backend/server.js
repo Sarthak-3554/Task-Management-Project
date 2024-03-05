@@ -110,7 +110,7 @@ app.post("/generalTask", async (req, res) => {
   }
 });
 
-app.get("/getGeeneralTask", async (req, res) => {
+app.get("/getGeneralTask", async (req, res) => {
   try {
     // Assuming otherTaskCollection is your MongoDB collection reference
     const tasks = await generalTaskCollection.find({}); // Use find({}) to retrieve all documents
